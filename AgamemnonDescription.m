@@ -12,26 +12,28 @@ function agamemnonTransit(days=4331)
   xlabel("x");
   ylabel("y");
   zlabel("z");
-  axis(limit = "square");
+  axis([-3, 3, -3, 3, -3, 3], "square");
 
   for i=1:1:days
     agtheta = (t-ag(1,6))*0.0810998;
     l4theta = (t-l4(1,6))*0.0831294;
+
+    if (agtheta > 360)
+      agtheta = rem(agtheta, 360);
+    endif
+    if (l4theta > 360)
+      l4theta = rem(l4theta, 360);
+    endif
+
     agx = agc+ag(1,1)*cosd(agtheta);
     l4x = l4c+l4(1,1)*cosd(l4theta);
     agy = (ag(1,1)*sqrt(1-(ag(1,2)^2)))+sqrt(1-(ag(1,2)^2))*sind(agtheta);
-    l4y = (5.19757458691*sqrt(1-(l4(1,2)^2)))*sind(l4theta);
+    l4y = (l4(1,1)*sqrt(1-(l4(1,2)^2)))+sqrt(1-(l4(1,2)^2))*sind(l4theta);
     agz = agx*sind(ag(1,3));
     l4z = agx*sind(l4(1,3));
 
     plot3(abs(agx)-abs(l4x), abs(agy)-abs(l4y), abs(agz)-abs(l4z), ".");
 
     t+=10;
-    if agtheta > 360
-      agtheta-=360;
-    endif
-    if l4theta > 360
-      l4theta-=360;
-    endif
   endfor
 endfunction
