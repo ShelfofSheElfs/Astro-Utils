@@ -14,7 +14,7 @@ If you REALLY don't want the filesystem that GitHub gives, use this fake one ins
 \> Studies  
 &nbsp;&nbsp;&nbsp;&nbsp; \> [Agamemnon](https://www.github.com/ShelfofSheElfs/Astro-Utils/Agamemnon-Study)  
 &nbsp;&nbsp;&nbsp;&nbsp; \> [C/2025 K1 (ATLAS)](https://github.com/ShelfofSheElfs/Astro-Utils/tree/main/CT2025%20K110)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> [2nd July 02:45 CET Observations](https://github.com/ShelfofSheElfs/Astro-Utils/tree/main/CT2025%20K110/024527)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> [2nd July 02:45 CET Observations](https://github.com/ShelfofSheElfs/Astro-Utils/tree/main/CT2025%20K110/024527)  
 \> Utilities (Under construction)  
 &nbsp;&nbsp;&nbsp;&nbsp; \> Under construction... Still...  
 
