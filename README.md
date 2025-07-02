@@ -24,7 +24,7 @@ If you REALLY don't want the filesystem that GitHub gives, use this fake one ins
 &nbsp; For when I need a quick observatory control file to send to a remote observatory. (Quick meaning 5 minutes plus the weeks of waiting for that one cloud to pass...)  
 
 \> SBDB/MPEC Ephemeris Generator  
-&nbsp; [I just want more streamlined ephemerides](https://media.tenor.com/EnfUQlTnMF8AAAAi/disintegrating-meme-aughh-meme.gif
+&nbsp;&nbsp;&nbsp;&nbsp; [I just want more streamlined ephemerides](https://media.tenor.com/EnfUQlTnMF8AAAAi/disintegrating-meme-aughh-meme.gif)
 
 #### Contact
 
