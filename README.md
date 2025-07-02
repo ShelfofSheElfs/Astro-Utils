@@ -2,6 +2,11 @@
 
 Welcome to Astro-Utils. This is my small little corner for everything astro-related that I need now, yesterday, or probably tomorrow, because I'll forget how to do it.
 
+# Current Foci
+
+**Currently observing:** Comet 2025 K1 (ATLAS)  
+**Currently Studying:** Asteroid (911) Agamemnon
+
 ## Navigation!
 
 If you REALLY don't want the filesystem that GitHub gives, use this fake one instead:
