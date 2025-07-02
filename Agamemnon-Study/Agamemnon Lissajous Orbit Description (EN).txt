@@ -1,0 +1,375 @@
+﻿Agamemnon Lissajous Orbit Description        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Describing the Lissajous Orbit Pattern of (911) Agamemnon Relative to the Jovian L4 Lagrange Point
+
+
+Rei R. Johnson
+________________
+Contents
+
+
+Abstract…………………………………………………………………………………………………….        3
+Heliocentric Orbit Parameters……………………………………………………………………………        3
+1.0 Parameter Tables………………………………………………………………………………        3
+Methods…………………………………………………………………………………………………….        6
+2.0 Coordinate Determination……………………………………………………………………..        6
+2.1 GNU Octave Programming…………………………………………………………………….        7
+Results……………………………………………………………………………………………………...        9
+3.0 Graph Output…………………………………………………………………………………..        9
+3.1 Procedure Failures and Adaptations…………………………………………………………        14
+References………………………………………………………………………………………………...        16
+________________
+Abstract
+
+
+This study will describe the behavior of the Greek Camp Trojan 911 Agamemnon. 911 Agamemnon is the largest regular-shaped asteroid in the Greek Camp. Above it is 624 Hektor, the largest Trojan, and 617 Patroclus, the two-asteroid system, which have incongruent shapes with what would be considered regular. For the purposes of this study, we will describe the Lissajous Orbit pattern of 911 Agamemnon around Jupiter’s L4 Lagrange point as proof of a Lagrange-point-relative orbit determination.
+
+
+Keywords: (911), Agamemnon, Lagrange Point, Greek Camp, Trojan, orbit.
+
+
+Heliocentric Orbit Parameters
+
+
+1.0 Parameter Tables
+Determining Agamemnon’s orbit based on its movement around the sun will give us a basis for where it will be at any given time. We use this data along with Jupiter’s orbital parameters to determine where Agamemnon is relative to the L4 Lagrange point.
+
+
+The orbital parameters of Agamemnon are already determined in a heliocentric reference frame. Using these parameters, as well as the parameters of the center of the L4 point, we can determine the relative distance between the asteroid at any point in time and the center of the Lagrange point at any point in time. We should begin by determining the orbital parameters of the asteroid. Agamemnon was first discovered in 1919 (Reinmuth, 1926), and its orbit has been continually refined over 105 years and 299 days as of 2025/01/12 (NASA Jet Propulsion Laboratory, 2025). Agamemnon’s orbital parameters are the following:
+
+
+Element
+	Value
+	Reference
+	Note
+	Eccentricity (e)
+	0.0671889
+	(International Astronomical Union, 1937)
+	Uncertainty of 4.9582E-9
+	Semi-major axis (a)
+	5.2859443au
+	(International Astronomical Union, 1937)
+	Uncertainty of 3.0303E-8au
+	Semi-minor axis (b)
+	5.2739995au
+	Hand calculation
+	Calculated as , certainty based upon IAU measurements for all hand calculations.
+	Semi-parameter (p)
+	5.2620817au
+	Hand calculation
+	Calculated as , certainty based upon IAU measurements for all hand calculations.
+
+
+	Apoapsis (ra)
+	5.6411010au
+	Hand calculation
+	Calculated as , certainty based upon IAU measurements for all hand calculations.
+	Periapsis (rP)
+	4.9307875au
+	(NASA Jet Propulsion Laboratory, 2025)
+	Calculated as 
+Uncertainty of 5.357E-8au
+	Inclination (i)
+	21.755921°
+	(NASA Jet Propulsion Laboratory, 2025)
+	Uncertainty of 7.4775E-8°
+	Period
+	12.153240y
+	(NASA Jet Propulsion Laboratory, 2025)
+	Uncertainty of 1.0451E-7y, period in days is ~4438d ± 3.8172E-5d
+	Longitude of the Ascending Node (Ω)
+	338.02013°
+	(NASA Jet Propulsion Laboratory, 2025)
+	Uncertainty of 2.8377E-7°
+	Argument of Periapsis (ω)
+	82.358383°
+	(NASA Jet Propulsion Laboratory, 2025)
+	Uncertainty of 3.3206E-6°
+	Mean Anomaly (M)
+	86.089087°
+	(NASA Jet Propulsion Laboratory, 2025)
+	Uncertainty of 2.4149E-6°
+	Time of Perihelion Passage (tp)
+	2022-Jun-08
+	(NASA Jet Propulsion Laboratory, 2025)
+	Uncertainty of 3.2724E-5s
+	Mean Motion (n)
+	0.0810998°/d
+	(NASA Jet Propulsion Laboratory, 2025)
+	Uncertainty of 6.9739E-10°/d
+	
+
+Agamemnon’s orbit parameters are now defined. This gives us the ability to place it at a near-exact position at a certain time. These parameters will be used later in the process of determining the Lagrange-relative orbit. To use this data later, we require the orbital parameters of Jupiter. Luckily, Jupiter has a very well-described orbit:
+
+
+Element
+	Value
+	Reference
+	Note
+	Eccentricity (e)
+	0.0489
+	(NASA, 2024)
+	Certain
+	Semi-major axis (a)
+	5.2038au
+	(NASA, 2024)
+	Certain
+	Semi-minor axis (b)
+	5.19757451au
+	(NASA, 2024)
+	Calculated as , certainty based upon IAU measurements for all hand calculations.
+	Semi-parameter (p)
+	5.1913566au
+	Hand Calculation
+	Calculated as 
+Uses certain values
+	Apoapsis (ra)
+	5.4570au
+	(NASA, 2024)
+	Certain
+	Periapis (rP)
+	4.9506au
+	(NASA, 2024)
+	Certain
+	Inclination (i)
+	1.304°
+	(NASA, 2024)
+	Certain
+	Period
+	11.856523y
+	(Willman Jr., 2021)
+	Certain
+	Longitude of the Ascending Node (Ω)
+	100.464°
+	(Simon et al., 1994, 678-679)
+	Certain
+	Argument of Periapsis (ω)
+	273.867°
+	(Simon et al., 1994, 678-679)
+	Certain
+	Mean Anomaly (M)
+	20.020°
+	(Simon et al., 1994, 678-679)
+	Certain
+	Time of Perihelion Passage (tp)
+	2023-Jan-21
+	(NASA Jet Propulsion Laboratory, 2025)
+	Certain
+	Mean Motion (n)
+	0.0831294°/d
+	(Willman Jr., 2021)
+	Certain
+	
+
+Now, with Jupiter’s parameters, we can describe those of its fourth Lagrange point. These will be mostly similar to the parameters of Jupiter’s orbit; however, certain parameters will be offset by 60°. We will redescribe these parameters in a new table:
+
+
+Element
+	Value
+	Reference
+	Note
+	Eccentricity (e)
+	0.0489
+	(NASA, 2024)
+	Certain
+	Semi-major axis (a)
+	5.2038au
+	(NASA, 2024)
+	Certain
+	Semi-minor axis (b)
+	5.19757451au
+	Hand Calculation
+	Calculated as , certainty based upon IAU measurements for all hand calculations.
+	Semi-parameter (p)
+	5.1913566au
+	Hand Calculation
+	Calculated as 
+	Apoapsis (ra)
+	5.4570au
+	(NASA, 2024)
+	Certain
+	Periapis (rP)
+	4.9506au
+	(NASA, 2024)
+	Certain
+	Inclination (i)
+	1.304°
+	(NASA, 2024)
+	Certain
+	Period
+	11.856523y
+	(Willman Jr., 2021; Seidelmann, 1992)
+	Certain
+	Longitude of the Ascending Node (Ω)
+	160.464°
+	Hand Adjusted
+	Calculated as Ω for Jupiter +60°
+	Argument of Periapsis (ω)
+	213.867°
+	Hand Adjusted
+	Calculated as ω for Jupiter -60°
+	Mean Anomaly (M)
+	20.020°
+	(Simon et al., 1994, 678-679)
+	Certain
+	Time of Perihelion Passage (tp)
+	2021-Jan-28
+	Hand Calculated
+	Calculated as tp for Jupiter -16.6% of Jupiter’s orbital period in days.
+	Mean Motion (n)
+	0.0831294°/d
+	(Willman Jr., 2021)
+	Certain
+	
+
+We finally have all of the required parameters to describe our system. With these parameters, we can tell exactly where Agamemnon, Jupiter, and its L4 point are at any given time.
+        
+Keywords: orbital parameters, Jupiter, L4, offset.
+
+
+Methods
+
+
+2.0 Coordinate Determination
+To solve for Agamemnon or any other object’s position relative to the Lagrange point, we need to solve for its position coordinates. Luckily, these position coordinates can be calculated easily. For demonstration, we will use this as the setup for our calculations:
+
+
+T0 = 01/01/2026, an arbitrary future point in which both objects will likely exist
+TNext is a variable used as the sample rate
+
+
+Using these parameters, we can determine the angle of each object from the sun. This angle will also allow us to find the distance from the sun at a given point in time. The distance is calculated as:
+
+
+
+
+
+Theta is the current angle between the object’s periapsis and its current location. rcurrent is the current distance from the sun. Once we have determined this for both Agamemnon and Jupiter’s L4 point at a given time, we can use this to determine the first two coordinates of our 3D system. The origin for these coordinates needs to be a constant, so we will use the Sun. The sun will always be located at a focus of the ellipse, which makes it easier to calculate trigonometrically.  The calculations for each coordinate are:
+
+
+
+
+
+
+Theta remains the same between the equations. We now have a coordinate with the same unit as our distance and our orbital parameters. For this paper, this unit is au. Now that the coordinates in a flat plane are identified, we can determine the relative elevation to the sun. This will use both the angle and the inclination. For a body like Agamemnon, this means the relative up-down will just be congruent to a point on a sine wave similar to its angle on orbit and its x and y coordinates. The elevation equation is:
+
+
+
+
+
+
+
+Elevation is measured in au as well, so with this, we can determine the x, y, and z coordinates for each point or body in space relative to the elliptical center point. All of these can then be adjusted by their required values to reach the heliocentric coordinates. These equations can be described as one of the following, depending on the coordinate:
+
+
+
+
+
+
+
+With the adjusted coordinates, a simple matrix subtraction operation can give us the offset of the object relative to the Lagrange point. This matrix subtraction operation can be represented as:
+
+
+
+
+
+These coordinates can then be input to GNU Octave to be represented as a point in space.
+
+
+        Keywords: matrix, ellipse, focus, system, coordinate, inclination, elevation, relative
+
+
+2.1 GNU Octave Programming
+Using the previously established equations, we can use GNU Octave, an open-source alternative to MATLAB, to describe the Lissajous Orbit pattern visually. GNU Octave is an accessible alternative with the same functionality as MATLAB. This paper will cover the required programming and be published alongside the necessary .m files to reproduce the experiments. To begin, we copy the aforementioned algorithm into GNU Octave using the MATLAB standard language.
+
+
+The code representing the algorithm takes the required variables T0, TStep, rcurrent, a, b, e, ra, rb, i, as well as the mean motion for both objects and the time of passage for each of the objects. It will need these variables for each of the points, so we represent this as two matrices with the a, b, e, ra, and rb variables in that order. Each of these matrices is defined in any manner, however, the example code defines the L4 matrix as ‘l4’ and the 911 Agamemnon matrix as ‘ag’ to avoid syntax confusion. The matrices are hence defined at the top of the file as:
+
+
+lagrange = [5.2038, 5.2739995, 0.0489, 5.4570, 4.9506, 1.304];
+agamemnon = [5.2859443, 5.2739995, 0.0671889, 5.6411010, 4.9307875, 21.755921];
+
+
+The data is accessed by calling these matrices like so:
+
+
+lagrange[1,1]; (Accesses the first row, first column, which corresponds to 5.2038)
+
+
+With these established in our file, we can then translate all of the equations into MATLAB’s programming language. In Octave, it is recommended to use a function to write the algorithm, so we call the function agamemnonLissajous Orbit() in the example file. These methods return us a plot of the object’s Lissajous Orbit plane. According to observations of this plane, the object has a specific area within the L4 Greek Camp where it can be found. 
+
+
+        Keywords: GNU Octave, MATLAB, matrices, syntax,  plot
+________________
+Results
+
+
+3.0 Graph Output
+The following output is returned when running the example file. This is a 3d representation of (911) Agamemnon’s Lissajous Orbit pattern within the Greek Camp:  
+  
+  
+  
+  
+
+These graphs bring some interesting questions to the table, foremost of these questions would likely be if this occurs in other objects as well. These patterns are likely to be found within other high inclination Trojans, and with the variables expressed in 1.0 adapted to fit objects such as (624) Hektor, (617) Patroclus, and (1437) Diomedes, as well as their respective Lagrange points. Another observation to be made is the contrast between these inclined orbits and their respective Lagrangian orbits compared to low inclination orbits calculated and executed by humans, such as the James Webb Space Telescope’s orbit. 
+
+
+One observation to note about the graph itself is that the Z axis is not scaled to the X and the Y axes. This was a choice made due to the squish the orbit would experience if the graph’s axes were made square. It is important to keep this in the back of your mind when reading the graphs, as it is a fairly important aspect. Below is the graph at a square, and the published code also uses this axis warping:
+  
+
+
+
+Keywords: Lagrange, Human-made, Orbit(s), Graphs
+
+
+
+
+3.1 Procedure Failures and Adaptations
+Many things changed during the solving of 2.0 and the implementation of 2.1. Initially, the pattern was described more as an elliptical orbit, which, when plotted over time, takes the shape of a self-intersecting spindle torus. This was determined to be incorrect because the apoapsis of this ellipse would be over 10 AU, insinuating that the center of the Greek Camp and Agamemnon would be on different sides of the Jovian Orbit, which is impossible. The second failure was due to the absence of absolute value usage in the matrix subtraction. The absolute values of each coordinate at a point in time must be given, else the pattern will endlessly repeat a spiral pattern. These were the output graphs of these failures:
+  
+
+  
+
+Keywords: implementation, failure, matrix subtraction, absolute value
+________________
+Corroboration Efforts
+
+
+References
+Chebotarev, G. A., Beliaev, N. A., & Eremenko, R. P. (1974). Orbits of Trojan Asteroids. International Astronomical Union Symposium, (62), 63-69. SAO/NASA Astrophysics Data System. Retrieved 03 12, 2025, from https://ui.adsabs.harvard.edu/abs/1974IAUS...62...63C/abstract
+International Astronomical Union. (1937). (911) Agamemnon. International Astronomical Union Minor Planet Center. Retrieved 03 12, 2025, from https://www.minorplanetcenter.net/db_search/show_object?object_id=911
+NASA. (2024, October 2). Jupiter Fact Sheet. the NSSDCA. Retrieved March 12, 2025, from https://nssdc.gsfc.nasa.gov/planetary/factsheet/jupiterfact.html
+NASA Jet Propulsion Laboratory. (2025, January 30). HORIZONS Planet-center Batch call for January 2023 Perihelion. NASA Jet Propulsion Laboratory. Retrieved March 12, 2025, from https://ssd.jpl.nasa.gov/horizons_batch.cgi?batch=1&COMMAND=%27599%27&START_TIME=%272023-01-01%27&STOP_TIME=%272023-01-31%27&STEP_SIZE=%273%20hours%27&QUANTITIES=%2719%27
+NASA Jet Propulsion Laboratory. (2025, March 08). 911 Agamemnon. Small Body Database. Retrieved March 12, 2025, from https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=911
+Reinmuth, K. W. (1926). Die Herschel-Nebel nach Aufnahmen der Koenigstuhl-Sternwarte. Veroeffentlichungen der Badischen Landes-Sternwarte zu Heidelberg, 9, 103. SAO/NASA Astrophysics Data System. Retrieved 03 12, 2025, from https://ui.adsabs.harvard.edu/abs/1926ViHei...9....1R/abstract
+Seidelmann, K. P. (Ed.). (1992). Explanatory Supplement to the Astronomical Almanac. University Science Books. https://ui.adsabs.harvard.edu/abs/1992esaa.book.....S/abstract
+Seidelmann, K. P. (2007, July). Report of the IAU/IAG Working Group on cartographic coordinates and rotational elements: 2006. Celestial Mechanics and Dynamical Astronomy, 98(3), 155-180. SAO/NASA Astrophysics Data System. 10.1007/s10569-007-9072-y
+Seidelmann, K. P. (2018, February 23). Report of the IAU/IAG Working Group on cartographic coordinates and rotational elements: 2015. Celestial Mechanics and Dynamical Astronomy, 130(22). 10.1007/s10569-017-9805-5
+Simon, J. L., Brentagon, P., Chapront, J., Chapront-Touze, M., Francou, G., & Laskar, J. (1994, February). Numerical expressions for precession formulae and mean elements for the Moon and the planets. Astronomy and Astrophysics, 282, 663-689. SAO/NASA Astrophysical Data System. https://ui.adsabs.harvard.edu/abs/1994A%26A...282..663S/abstract
+Willman Jr., A. J. (2021, July 12). Planet Jupiter Data. Alexander J. Willman, Jr. Retrieved March 12, 2025, from https://www.princeton.edu/~willman/planetary_systems/Sol/Jupiter/
+
+
+Programming files have been published in parallel with this paper. Access is available on GitHub here:
+https://github.com/ReiJohnson/Agamemnon
+
+
+Imaging done with paid use of the Altinak Remote Observatory in Spain. The instrument used is specified in 4.0.
