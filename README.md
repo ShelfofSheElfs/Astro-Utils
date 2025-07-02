@@ -4,7 +4,7 @@ Welcome to Astro-Utils. This is my small little corner for everything astro-rela
 
 # Current Foci
 
-**Currently observing:** Comet 2025 K1 (ATLAS)  
+**Currently observing:** Comet 2025 K1 (ATLAS) (1/6 Files Calibrated, 5/6 Imaged)  
 **Currently Studying:** Asteroid (911) Agamemnon
 
 ## Navigation!
