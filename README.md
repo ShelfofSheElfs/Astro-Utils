@@ -1,10 +1,10 @@
 # Astro-Utils
 
-Welcome to Astro-Utils. This is my small little corner for everything astro-related that I need now, yesterday, or probably tomorrow, because I'll forget how to do it.
+Welcome to Astro-Utils. This is my small little corner for everything astro-related that I need now, yesterday, or probably tomorrow because I'll forget how to do it.
 
 # Current Foci
 
-**Currently observing:** Comet 2025 K1 (ATLAS) (1/6 Files Calibrated, 5/6 Imaged)  
+**Currently observing:** Comet 2025 K1 (ATLAS) (7/7 Files Calibrated, 7/7 Imaged)  
 **Currently Studying:** Asteroid (911) Agamemnon
 
 ## Navigation!
